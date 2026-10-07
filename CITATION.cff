@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this benchmark, please cite this repository."
+title: "Fail-Closed SWE Agent Benchmark"
+type: software
+authors:
+  - family-names: "Зигангиров"
+    given-names: "Олег"
+repository-code: "https://github.com/treining2016-oss/fail-closed-swe-agent-benchmark"
+license: MIT
+version: "0.1.0"
+date-released: "2026-10-08"
