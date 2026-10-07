@@ -17,3 +17,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run fail-closed control self-test
         run: python3 harness/selftest.py
+      - name: Verify A-F gate toggles (simulation, not model results)
+        run: python3 harness/control_gate_simulation_v1.py --output /tmp/fail-closed-control.jsonl
