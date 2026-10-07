@@ -74,6 +74,10 @@ else:
 after = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=repo, text=True).strip()
 rec = {
     "schema": "FAIL_CLOSED_SWE_ATTEMPT_RECEIPT_V1",
+    "evaluation_type": "CONTROL_HARNESS_ONLY",
+    "model_executed": False,
+    "variant_execution_implemented": False,
+    "variant_is_metadata_label_only": True,
     "task_id": spec["task_id"],
     "variant": a.variant,
     "seed": a.seed,
