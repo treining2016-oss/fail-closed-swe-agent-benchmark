@@ -1,0 +1,17 @@
+{
+  "schema": "FAIL_CLOSED_SWE_PUBLIC_CI_EVIDENCE_V1",
+  "github_repository": "treining2016-oss/fail-closed-swe-agent-benchmark",
+  "workflow_run_id": 37691690918,
+  "job_id": 113033176785,
+  "conclusion": "success",
+  "expected": {
+    "FC003": "STALE",
+    "FC008": "GREEN"
+  },
+  "observed": {
+    "FC003": "STALE",
+    "FC008": "GREEN"
+  },
+  "status": "GREEN",
+  "claim_scope": "control-harness self-test only; not an A-F model comparison result"
+}
