@@ -40,6 +40,14 @@ python3 harness/evaluate_candidate.py \
 
 Promotion is fail-closed: tests, stale-state checks and verification must all be GREEN.
 
+## Run six stateful control regressions (Linux / POSIX)
+
+```bash
+python3 harness/stateful_promotion_v1.py --output /tmp/stateful.jsonl
+```
+
+This uses isolated Git clones, a nonblocking `fcntl` file lock, a hidden regression assertion and replay receipt. The six expected results are documented in [STATEFUL_CONTROL_STATUS_V1.md](STATEFUL_CONTROL_STATUS_V1.md). No model is executed.
+
 ## Empirical-status note
 
 The A–F comparison is preregistered in `VARIANTS_V1.json`. This repository does **not** claim model-comparison results until corresponding receipts are published.
