@@ -1,14 +1,15 @@
 # Experimental status and claims boundary
 
-This repository contains **two distinct kinds of executable tests** and a preregistered, **not yet executed** coding-model comparison. They must not be conflated.
+This repository contains **three distinct kinds of executable control tests** and a preregistered, **not yet executed** coding-model comparison. They must not be conflated.
 
 ## Verified
 
 1. `python3 harness/selftest.py` builds isolated Git fixtures and checks the controller's expected GREEN / STALE outcomes.
 2. `python3 harness/control_gate_simulation_v1.py` executes 48 deterministic controller-scenario evaluations (8 scenario flags × 6 A–F gate configurations) and self-checks the selected promotion rules.
-3. GitHub Actions runs both commands on the public runner.
+3. `python3 harness/stateful_promotion_v1.py` executes **six isolated stateful Git/filesystem regression scenarios** (actual HEAD comparisons, OS lock contention, shadow clone, hidden verifier and replay suppression). See [the evidence and limitations](STATEFUL_CONTROL_STATUS_V1.md).
+4. GitHub Actions runs all three commands; [run 37705925749](https://github.com/treining2016-oss/fail-closed-swe-agent-benchmark/actions/runs/37705925749) completed successfully.
 
-**The simulation is NOT a Gemma inference run, coding-agent trial, measured repair improvement, or comparison of different model capabilities.** It has no stochastic seed effect or model generated patches.
+**None of the three control tests is a Gemma inference run, coding-agent trial, measured repair improvement, or comparison of different model capabilities.** It has no stochastic seed effect or model generated patches.
 
 ## Unverified / incomplete
 
