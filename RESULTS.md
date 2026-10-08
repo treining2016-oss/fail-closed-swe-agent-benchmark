@@ -21,6 +21,10 @@ This verifies that the harness can:
 1. promote an ordinary deterministic task when the required checks are GREEN; and
 2. refuse promotion after an intervening repository change even when execution itself succeeds.
 
+## Additional verified stateful control checks
+
+Six real Git/filesystem control regression fixtures now run in CI: clean CAS promotion, stale commit refusal, nonblocking OS lock contention, partial pre-promotion failure, independent hidden assertion rejection, and duplicate-work suppression. Each case checks the expected verdict and absence of unauthorized canonical commits. [CI run 37705925749](https://github.com/treining2016-oss/fail-closed-swe-agent-benchmark/actions/runs/37705925749) reports `GREEN_STATEFUL_CONTROL_SELFTEST`; see [STATEFUL_CONTROL_STATUS_V1.md](STATEFUL_CONTROL_STATUS_V1.md) for exact scope and limitations. These six tiny cases are not Gemma inference or model A–F trials.
+
 ## What is **not** claimed yet
 
 These control self-tests are **not** an empirical comparison of coding-model quality.
