@@ -77,6 +77,10 @@ Expected:
 
 The self-test uses only Python standard library + Git.
 
+## Stateful control regression
+
+In addition to the 48 deterministic A–F controller flag simulations, an independent [six-case Git state/lock/verification/replay test](STATEFUL_CONTROL_STATUS_V1.md) is now exercised in public CI. [Verified run 37705925749](https://github.com/treining2016-oss/fail-closed-swe-agent-benchmark/actions/runs/37705925749) was successful. It measures failure handling of synthetic control fixtures, **not** model coding ability.
+
 ## Current empirical status
 
 The control harness is implemented and self-tested. The full A–F model comparison remains preregistered. No model-performance claim should be inferred until the corresponding receipts are published.
