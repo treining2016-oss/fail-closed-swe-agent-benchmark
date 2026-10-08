@@ -19,3 +19,5 @@ jobs:
         run: python3 harness/selftest.py
       - name: Verify A-F gate toggles (simulation, not model results)
         run: python3 harness/control_gate_simulation_v1.py --output /tmp/fail-closed-control.jsonl
+      - name: Verify real Git CAS and fail-closed controls (not model results)
+        run: python3 harness/stateful_promotion_v1.py --output /tmp/fail-closed-stateful.jsonl
