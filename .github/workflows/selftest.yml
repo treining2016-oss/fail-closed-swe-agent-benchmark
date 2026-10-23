@@ -25,3 +25,6 @@ jobs:
           echo 'BEGIN_STATEFUL_CONTROL_RECEIPTS_V1__NOT_MODEL_RESULTS'
           cat /tmp/fail-closed-stateful.jsonl
           echo 'END_STATEFUL_CONTROL_RECEIPTS_V1'
+      - name: Validate public receipt contracts
+        run: |
+          python3 harness/validate_public_receipts.py             --control /tmp/fail-closed-control.jsonl             --stateful /tmp/fail-closed-stateful.jsonl
