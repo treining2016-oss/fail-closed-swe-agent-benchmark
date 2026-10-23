@@ -10,7 +10,7 @@ Coding-agent failures are not limited to model capability. Maintainers also face
 
 This repository turns those control-plane risks into small, reproducible fixtures that require no private infrastructure or paid model access for the controller self-tests. It is intended as a public test surface that other maintainers can adapt when evaluating agentic maintenance workflows.
 
-**No adoption claim:** the project does not currently claim broad usage, download volume, or model-quality results. Ecosystem relevance is the problem class and reproducible control surface, not a fabricated popularity metric.
+**No adoption claim:** the project does not currently claim broad usage or model-quality results. It does have external public distribution through Kaggle; see [EXTERNAL_DISTRIBUTION.md](EXTERNAL_DISTRIBUTION.md) for dated, reviewable usage signals and explicit claim boundaries.
 
 ## What this measures
 
@@ -99,7 +99,8 @@ The repository now documents the same surfaces used in real OSS maintenance:
 - [CONTRIBUTING.md](CONTRIBUTING.md) — issue/PR expectations and test discipline;
 - [SECURITY.md](SECURITY.md) — responsible vulnerability reporting and security scope;
 - [MAINTAINERS.md](MAINTAINERS.md) — primary-maintainer responsibilities and review policy;
-- [ROADMAP.md](ROADMAP.md) — public external-maintainer and model-evaluation milestones.
+- [ROADMAP.md](ROADMAP.md) — public external-maintainer and model-evaluation milestones;
+- [EXTERNAL_DISTRIBUTION.md](EXTERNAL_DISTRIBUTION.md) — dated external distribution/usage evidence and claim boundaries.
 
 Pull requests run the public controller tests before merge. Nontrivial changes are expected to preserve negative results and explicit limitations rather than optimize only for a GREEN outcome.
 
