@@ -1,6 +1,16 @@
 # Fail-Closed SWE Agent Benchmark
 
-Public reproducibility resource for the **Google – The Gemma 4 Developer Agent Paper Track**.
+[![Public benchmark self-test](https://github.com/treining2016-oss/fail-closed-swe-agent-benchmark/actions/workflows/selftest.yml/badge.svg)](https://github.com/treining2016-oss/fail-closed-swe-agent-benchmark/actions/workflows/selftest.yml)
+
+Public reproducibility resource for fail-closed software-engineering agent control, originally prepared for the **Google – The Gemma 4 Developer Agent Paper Track**.
+
+## Why OSS maintainers may care
+
+Coding-agent failures are not limited to model capability. Maintainers also face operational risks around stale repository state, concurrent writers, partial tool effects, duplicate work after retries or session rollover, and promotion before independent verification. These failure modes can matter in pull-request review, automated maintenance, release preparation, and security remediation.
+
+This repository turns those control-plane risks into small, reproducible fixtures that require no private infrastructure or paid model access for the controller self-tests. It is intended as a public test surface that other maintainers can adapt when evaluating agentic maintenance workflows.
+
+**No adoption claim:** the project does not currently claim broad usage, download volume, or model-quality results. Ecosystem relevance is the problem class and reproducible control surface, not a fabricated popularity metric.
 
 ## What this measures
 
@@ -79,7 +89,19 @@ The self-test uses only Python standard library + Git.
 
 ## Stateful control regression
 
-In addition to the 48 deterministic A–F controller flag simulations, an independent [six-case Git state/lock/verification/replay test](STATEFUL_CONTROL_STATUS_V1.md) is now exercised in public CI. [Verified run 37705925749](https://github.com/treining2016-oss/fail-closed-swe-agent-benchmark/actions/runs/37705925749) was successful. It measures failure handling of synthetic control fixtures, **not** model coding ability.
+In addition to the 48 deterministic A–F controller flag simulations, an independent [six-case Git state/lock/verification/replay test](STATEFUL_CONTROL_STATUS_V1.md) is exercised in public CI. [Verified run 37705925749](https://github.com/treining2016-oss/fail-closed-swe-agent-benchmark/actions/runs/37705925749) was successful. It measures failure handling of synthetic control fixtures, **not** model coding ability.
+
+## Maintainer workflow
+
+The repository now documents the same surfaces used in real OSS maintenance:
+
+- [AGENTS.md](AGENTS.md) — bounded agent instructions and required verification;
+- [CONTRIBUTING.md](CONTRIBUTING.md) — issue/PR expectations and test discipline;
+- [SECURITY.md](SECURITY.md) — responsible vulnerability reporting and security scope;
+- [MAINTAINERS.md](MAINTAINERS.md) — primary-maintainer responsibilities and review policy;
+- [ROADMAP.md](ROADMAP.md) — public external-maintainer and model-evaluation milestones.
+
+Pull requests run the public controller tests before merge. Nontrivial changes are expected to preserve negative results and explicit limitations rather than optimize only for a GREEN outcome.
 
 ## Current empirical status
 
