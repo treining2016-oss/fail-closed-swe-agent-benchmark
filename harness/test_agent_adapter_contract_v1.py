@@ -4,7 +4,7 @@ from __future__ import annotations
 import copy
 import unittest
 
-from agent_adapter_v1 import (
+from harness.agent_adapter_v1 import (
     ADAPTER_VERSION,
     AdapterContractError,
     normalize,
