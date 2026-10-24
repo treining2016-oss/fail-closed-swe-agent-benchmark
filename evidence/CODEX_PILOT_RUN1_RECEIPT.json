@@ -1,0 +1,65 @@
+{
+  "schema": "FAIL_CLOSED_CODEX_PILOT_RUN_V1",
+  "status": "CODEX_PATCH_INDEPENDENTLY_VERIFIED_NOT_MERGED",
+  "executed_at_utc": "2026-10-24",
+  "codex": {
+    "cli_version": "0.164.0",
+    "authentication_mode": "ChatGPT",
+    "api_key_used": false,
+    "paid_api_fallback_used": false,
+    "model_executed": true
+  },
+  "provenance": {
+    "base_commit_sha": "d26f914cbe506f4ab358d8520325376ad3104de8",
+    "code_result_commit_sha": "82515bd5908a05c7de888efa113380168d0278f3",
+    "patch_sha256": "774b1024eaa359f45959f16a3e24f58a253d0f9b4b5a2918ed0b36b83fb95a8f",
+    "frozen_protocol_pr": "https://github.com/treining2016-oss/fail-closed-swe-agent-benchmark/pull/7",
+    "branch": "codex-pilot-run-1"
+  },
+  "result": {
+    "real_defect_found": true,
+    "defect": "Adapter accepted task IDs such as FC!!! even though the public JSON Schema restricts task_id to ^FC[0-9A-Za-z._-]+$.",
+    "files_changed": [
+      "harness/agent_adapter_v1.py",
+      "harness/test_agent_adapter_contract_v1.py"
+    ],
+    "codex_reported_tests": {
+      "targeted_regression_before_fix": "FAILED as expected; AdapterContractError was not raised",
+      "post_fix_unit_tests": "31 passed",
+      "selftest": "GREEN",
+      "control_receipts": 48,
+      "stateful_scenarios": 6,
+      "public_receipt_validation": "GREEN",
+      "diff_check": "PASS"
+    },
+    "independent_verification": {
+      "unit_tests": "31/31 PASS",
+      "selftest": "GREEN",
+      "control_simulation": "GREEN_CONTROL_SELFTEST",
+      "control_receipts": 48,
+      "stateful_promotion": "GREEN_STATEFUL_CONTROL_SELFTEST",
+      "stateful_scenarios": 6,
+      "public_receipt_validation": "GREEN_PUBLIC_RECEIPTS_VALIDATED",
+      "diff_check": "PASS"
+    }
+  },
+  "metrics": {
+    "observed_wall_seconds": 37.86,
+    "cost_usd": null,
+    "token_usage": {
+      "input_tokens": 109618,
+      "cached_input_tokens": 92800,
+      "output_tokens": 1306,
+      "reasoning_output_tokens": 57
+    }
+  },
+  "claim_boundary": {
+    "model_performance_claim": false,
+    "general_codex_quality_claim": false,
+    "third_party_adoption_claim": false,
+    "external_endorsement_claim": false,
+    "single_task_only": true,
+    "human_maintainer_review": "PENDING",
+    "merge": "PENDING"
+  }
+}

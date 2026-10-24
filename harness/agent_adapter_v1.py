@@ -61,7 +61,8 @@ def _need(condition: bool, message: str) -> None:
 
 def validate_attempt(a: AgentAttempt) -> None:
     _need(a.adapter_version == ADAPTER_VERSION, "unsupported adapter_version")
-    _need(a.task_id.startswith("FC") and len(a.task_id) >= 5, "invalid task_id")
+    _need(re.fullmatch(r"FC[0-9A-Za-z._-]+", a.task_id) is not None
+          and len(a.task_id) >= 5, "invalid task_id")
     _need(bool(a.variant.strip()), "empty variant")
     _need(type(a.seed) is int and a.seed >= 0, "seed must be a nonnegative integer")
     _need(bool(a.adapter_id.strip()), "empty adapter_id")

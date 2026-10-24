@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 import copy
+import json
 import unittest
+from pathlib import Path
 
 from harness.agent_adapter_v1 import (
     ADAPTER_VERSION,
@@ -81,6 +83,21 @@ class AdapterContractTests(unittest.TestCase):
         value["adapter_version"] = "2.0.0"
         with self.assertRaises(AdapterContractError):
             normalize(value)
+
+    def test_task_id_with_characters_outside_receipt_schema_rejected(self):
+        value = valid()
+        value["task_id"] = "FC!!!"
+        with self.assertRaises(AdapterContractError):
+            normalize(value)
+
+    def test_short_task_id_rejected_and_schema_matches(self):
+        value = valid()
+        value["task_id"] = "FC1"
+        with self.assertRaises(AdapterContractError):
+            normalize(value)
+        schema_path = Path(__file__).resolve().parents[1] / "schemas" / "agent_attempt_receipt_v1.schema.json"
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+        self.assertEqual(schema["properties"]["task_id"]["minLength"], 5)
 
     def test_extra_field_rejected(self):
         value = valid()

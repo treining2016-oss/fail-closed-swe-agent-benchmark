@@ -5,34 +5,137 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "schema", "task_id", "variant", "seed", "adapter_id", "adapter_version",
-    "repo_commit_before", "repo_commit_after", "proposed_patch_sha256",
-    "test_verdict", "stale_guard_verdict", "verifier_verdict", "promotion_verdict",
-    "invalid_writes", "duplicate_work", "rollbacks", "tool_calls", "wall_seconds",
-    "model_latency_seconds", "cost_usd", "model_executed", "receipt_sha256"
+    "schema",
+    "task_id",
+    "variant",
+    "seed",
+    "adapter_id",
+    "adapter_version",
+    "repo_commit_before",
+    "repo_commit_after",
+    "proposed_patch_sha256",
+    "test_verdict",
+    "stale_guard_verdict",
+    "verifier_verdict",
+    "promotion_verdict",
+    "invalid_writes",
+    "duplicate_work",
+    "rollbacks",
+    "tool_calls",
+    "wall_seconds",
+    "model_latency_seconds",
+    "cost_usd",
+    "model_executed",
+    "receipt_sha256"
   ],
   "properties": {
-    "schema": {"const": "FAIL_CLOSED_AGENT_ADAPTER_V1"},
-    "task_id": {"type": "string", "pattern": "^FC[0-9A-Za-z._-]+$"},
-    "variant": {"type": "string", "minLength": 1},
-    "seed": {"type": "integer", "minimum": 0},
-    "adapter_id": {"type": "string", "minLength": 1},
-    "adapter_version": {"const": "1.0.0"},
-    "repo_commit_before": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
-    "repo_commit_after": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
-    "proposed_patch_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
-    "test_verdict": {"enum": ["GREEN", "RED", "SKIP", "STALE"]},
-    "stale_guard_verdict": {"enum": ["GREEN", "RED", "SKIP", "STALE"]},
-    "verifier_verdict": {"enum": ["GREEN", "RED", "SKIP", "STALE"]},
-    "promotion_verdict": {"enum": ["GREEN", "RED", "SKIP", "STALE"]},
-    "invalid_writes": {"type": "integer", "minimum": 0},
-    "duplicate_work": {"type": "integer", "minimum": 0},
-    "rollbacks": {"type": "integer", "minimum": 0},
-    "tool_calls": {"type": "integer", "minimum": 0},
-    "wall_seconds": {"type": "number", "minimum": 0},
-    "model_latency_seconds": {"type": ["number", "null"], "minimum": 0},
-    "cost_usd": {"type": ["number", "null"], "minimum": 0},
-    "model_executed": {"type": "boolean"},
-    "receipt_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+    "schema": {
+      "const": "FAIL_CLOSED_AGENT_ADAPTER_V1"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^FC[0-9A-Za-z._-]+$",
+      "minLength": 5
+    },
+    "variant": {
+      "type": "string",
+      "minLength": 1
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "adapter_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "adapter_version": {
+      "const": "1.0.0"
+    },
+    "repo_commit_before": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "repo_commit_after": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "proposed_patch_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "test_verdict": {
+      "enum": [
+        "GREEN",
+        "RED",
+        "SKIP",
+        "STALE"
+      ]
+    },
+    "stale_guard_verdict": {
+      "enum": [
+        "GREEN",
+        "RED",
+        "SKIP",
+        "STALE"
+      ]
+    },
+    "verifier_verdict": {
+      "enum": [
+        "GREEN",
+        "RED",
+        "SKIP",
+        "STALE"
+      ]
+    },
+    "promotion_verdict": {
+      "enum": [
+        "GREEN",
+        "RED",
+        "SKIP",
+        "STALE"
+      ]
+    },
+    "invalid_writes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "duplicate_work": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "rollbacks": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "tool_calls": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "wall_seconds": {
+      "type": "number",
+      "minimum": 0
+    },
+    "model_latency_seconds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "cost_usd": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "model_executed": {
+      "type": "boolean"
+    },
+    "receipt_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
   }
 }
