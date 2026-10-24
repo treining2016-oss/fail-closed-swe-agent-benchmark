@@ -1,6 +1,6 @@
 # Codex Pilot Run 1 — task-ID schema alignment
 
-**Status:** independently verified, not merged.
+**Status:** independently verified and merged.
 
 This is the first executed maintenance run under the preregistered Codex pilot. The protocol and exact prompt were made public before execution in PR #7.
 
@@ -17,7 +17,7 @@ Codex changed only:
 - `harness/agent_adapter_v1.py`
 - `harness/test_agent_adapter_contract_v1.py`
 
-The patch SHA-256 is:
+The Codex patch SHA-256 is:
 
 `774b1024eaa359f45959f16a3e24f58a253d0f9b4b5a2918ed0b36b83fb95a8f`
 
@@ -47,8 +47,18 @@ git diff --check
 
 Result: **31/31 PASS**, controller self-test GREEN, 48 control receipts, six stateful scenarios GREEN, public receipt validation GREEN, and clean diff formatting.
 
+GitHub Actions on exact PR head `4bf80f18baa21a2836d1c308b83a00749063f758` completed successfully before merge.
+
+## Merge provenance
+
+PR #8 was merged on 2026-10-24 as squash commit:
+
+`c6e8ebca6c24e3321561d5d30fff81dff8d96d85`
+
+The repository owner authorized continuation and merge after the assistant completed the technical review. This statement is intentionally distinct from claiming that the owner personally re-reviewed every diff line.
+
+The assistant-authored schema `minLength=5` follow-up remains explicitly separate from the original Codex-generated patch.
+
 ## Evidence boundary
 
 This is one bounded maintenance task. It is **not** evidence of general Codex model quality or benchmark performance. It does not claim third-party adoption or endorsement.
-
-Human maintainer review and merge are still pending.
