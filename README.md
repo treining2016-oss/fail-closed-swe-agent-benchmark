@@ -104,6 +104,17 @@ The repository now documents the same surfaces used in real OSS maintenance:
 
 Pull requests run the public controller tests before merge. Nontrivial changes are expected to preserve negative results and explicit limitations rather than optimize only for a GREEN outcome.
 
+## External agent adapter pilot
+
+The v0.2 release candidate freezes a provider-neutral external-agent boundary:
+
+- [ADAPTER_PROTOCOL_V1.md](ADAPTER_PROTOCOL_V1.md) — adapter contract and external pilot procedure;
+- [schemas/agent_attempt_receipt_v1.schema.json](schemas/agent_attempt_receipt_v1.schema.json) — machine-readable receipt schema;
+- [fixtures/external_maintainer_patterns_v1.json](fixtures/external_maintainer_patterns_v1.json) — reusable API-consistency, stale-HEAD and session-replay patterns;
+- [harness/agent_adapter_v1.py](harness/agent_adapter_v1.py) — fail-closed normalizer.
+
+Cost, latency and tool-call counts are recorded separately from controller correctness. No third-party maintainer review or adoption is claimed until independently observed.
+
 ## Current empirical status
 
 The control harness is implemented and self-tested. The full A–F model comparison remains preregistered. No model-performance claim should be inferred until the corresponding receipts are published.

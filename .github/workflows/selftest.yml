@@ -32,3 +32,9 @@ jobs:
             --stateful /tmp/fail-closed-stateful.jsonl
       - name: Reject adversarial and malformed receipts
         run: python3 -m unittest -v harness/test_receipt_validator_negative.py
+      - name: Verify versioned external agent adapter contract
+        run: python3 -m unittest -v harness/test_agent_adapter_contract_v1.py
+      - name: Parse public external-pilot artifacts
+        run: |
+          python3 -m json.tool schemas/agent_attempt_receipt_v1.schema.json >/dev/null
+          python3 -m json.tool fixtures/external_maintainer_patterns_v1.json >/dev/null
