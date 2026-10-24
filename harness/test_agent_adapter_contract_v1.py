@@ -82,6 +82,12 @@ class AdapterContractTests(unittest.TestCase):
         with self.assertRaises(AdapterContractError):
             normalize(value)
 
+    def test_task_id_with_characters_outside_receipt_schema_rejected(self):
+        value = valid()
+        value["task_id"] = "FC!!!"
+        with self.assertRaises(AdapterContractError):
+            normalize(value)
+
     def test_extra_field_rejected(self):
         value = valid()
         value["marketing_claim"] = "fastest"
