@@ -1,6 +1,6 @@
 {
   "schema": "FAIL_CLOSED_CODEX_PILOT_RUN_V1",
-  "status": "CODEX_PATCH_INDEPENDENTLY_VERIFIED_NOT_MERGED",
+  "status": "CODEX_PATCH_INDEPENDENTLY_VERIFIED_MERGED",
   "executed_at_utc": "2026-10-24",
   "codex": {
     "cli_version": "0.164.0",
@@ -14,7 +14,10 @@
     "code_result_commit_sha": "82515bd5908a05c7de888efa113380168d0278f3",
     "patch_sha256": "774b1024eaa359f45959f16a3e24f58a253d0f9b4b5a2918ed0b36b83fb95a8f",
     "frozen_protocol_pr": "https://github.com/treining2016-oss/fail-closed-swe-agent-benchmark/pull/7",
-    "branch": "codex-pilot-run-1"
+    "branch": "codex-pilot-run-1",
+    "merge_pr": "https://github.com/treining2016-oss/fail-closed-swe-agent-benchmark/pull/8",
+    "merge_commit_sha": "c6e8ebca6c24e3321561d5d30fff81dff8d96d85",
+    "merged_at_utc": "2026-10-24"
   },
   "result": {
     "real_defect_found": true,
@@ -40,7 +43,9 @@
       "stateful_promotion": "GREEN_STATEFUL_CONTROL_SELFTEST",
       "stateful_scenarios": 6,
       "public_receipt_validation": "GREEN_PUBLIC_RECEIPTS_VALIDATED",
-      "diff_check": "PASS"
+      "diff_check": "PASS",
+      "pr_head_ci": "SUCCESS",
+      "pr_head_sha": "4bf80f18baa21a2836d1c308b83a00749063f758"
     }
   },
   "metrics": {
@@ -59,7 +64,7 @@
     "third_party_adoption_claim": false,
     "external_endorsement_claim": false,
     "single_task_only": true,
-    "human_maintainer_review": "PENDING",
-    "merge": "PENDING"
+    "human_maintainer_review": "OWNER_AUTHORIZED_MERGE_AFTER_ASSISTANT_TECHNICAL_REVIEW",
+    "merge": "MERGED"
   }
 }
