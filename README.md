@@ -115,6 +115,12 @@ The v0.2 release candidate freezes a provider-neutral external-agent boundary:
 
 Cost, latency and tool-call counts are recorded separately from controller correctness. No third-party maintainer review or adoption is claimed until independently observed.
 
+## Frozen Codex maintenance pilot
+
+The first reproducible Codex maintenance experiment is specified in [CODEX_PILOT_PROTOCOL_V1.md](CODEX_PILOT_PROTOCOL_V1.md), with the exact prompt in [codex_pilot_prompt_v1.txt](codex_pilot_prompt_v1.txt).
+
+**Status: NOT YET EXECUTED.** The protocol is public before the run so acceptance criteria cannot be rewritten after seeing the result. A failed or rejected attempt remains valid evidence and must be preserved.
+
 ## Current empirical status
 
 The control harness is implemented and self-tested. The full A–F model comparison remains preregistered. No model-performance claim should be inferred until the corresponding receipts are published.
