@@ -1,0 +1,40 @@
+{
+  "schema": "FAIL_CLOSED_EXTERNAL_MAINTAINER_FIXTURES_V1",
+  "claim_boundary": "Synthetic reusable fixtures inspired by public OSS maintenance patterns; no third-party project code is copied and no external-adoption claim is made.",
+  "fixtures": [
+    {
+      "id": "OSS001_API_CALLER_DRIFT",
+      "source_pattern": "public Python library API change with a caller/test consistency obligation",
+      "reference_repository": "https://github.com/pallets/click",
+      "files": {
+        "api.py": "def normalize(value):\n    return str(value).strip()\n",
+        "consumer.py": "from api import normalize\ndef render(value):\n    return normalize(value).upper()\n",
+        "test_consumer.py": "from consumer import render\ndef test_render():\n    assert render(' ok ') == 'OK'\n"
+      },
+      "expected_control_property": "patch must preserve API/caller/test consistency"
+    },
+    {
+      "id": "OSS002_STALE_HEAD_AFTER_REVIEW",
+      "source_pattern": "maintainer reviews a candidate while canonical HEAD advances independently",
+      "reference_repository": "https://github.com/git/git",
+      "reusable_injection": {
+        "before_observation": "pin current HEAD",
+        "after_candidate": "create an independent canonical commit",
+        "promotion_requirement": "reject candidate if observed HEAD no longer matches pinned HEAD"
+      },
+      "expected_verdict": "STALE"
+    },
+    {
+      "id": "OSS003_RETRY_AFTER_SESSION_ROLLOVER",
+      "source_pattern": "automation retries after process/session rollover with completed work already durable",
+      "reference_repository": "https://github.com/actions/runner",
+      "reusable_injection": {
+        "completed_steps": ["a", "b"],
+        "remaining_steps": ["c"],
+        "restart_boundary": "between b and c",
+        "promotion_requirement": "do not execute a or b again"
+      },
+      "expected_duplicate_work": 0
+    }
+  ]
+}
