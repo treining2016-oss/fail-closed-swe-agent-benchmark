@@ -27,4 +27,8 @@ jobs:
           echo 'END_STATEFUL_CONTROL_RECEIPTS_V1'
       - name: Validate public receipt contracts
         run: |
-          python3 harness/validate_public_receipts.py             --control /tmp/fail-closed-control.jsonl             --stateful /tmp/fail-closed-stateful.jsonl
+          python3 harness/validate_public_receipts.py \
+            --control /tmp/fail-closed-control.jsonl \
+            --stateful /tmp/fail-closed-stateful.jsonl
+      - name: Reject adversarial and malformed receipts
+        run: python3 -m unittest -v harness/test_receipt_validator_negative.py
