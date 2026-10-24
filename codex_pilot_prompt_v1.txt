@@ -1,0 +1,29 @@
+You are working in the public repository treining2016-oss/fail-closed-swe-agent-benchmark.
+
+Perform one bounded maintenance task only.
+
+Inspect:
+- ADAPTER_PROTOCOL_V1.md
+- harness/agent_adapter_v1.py
+- harness/test_agent_adapter_contract_v1.py
+- schemas/agent_attempt_receipt_v1.schema.json
+- fixtures/external_maintainer_patterns_v1.json
+
+Goal:
+Find one real missing fail-closed invariant in the V1 external-agent adapter contract and implement the smallest justified fix plus a negative regression test.
+
+If you do not find a genuine defect, do not invent one. Instead, add one deterministic adversarial regression test that exercises a meaningful boundary already promised by the contract.
+
+Constraints:
+- do not weaken existing assertions or change verdicts just to make tests pass;
+- do not edit unrelated files;
+- do not claim third-party adoption, endorsement, or model-performance results;
+- do not merge or push to main;
+- preserve any failed attempt in your report;
+- run the repository's relevant tests before finishing.
+
+At the end, report:
+1. whether a real defect was found;
+2. files changed;
+3. exact test commands and results;
+4. any remaining uncertainty or reason a human maintainer should reject the patch.
